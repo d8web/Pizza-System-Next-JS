@@ -53,4 +53,4 @@ Neste projeto foram usadas as seguintes tecnologias
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 
 <hr/>
-Criado com dedicação por [Daniel](https://github.com/d8web/).
+Criado com dedicação por <a href="https://github.com/d8web/" target="_blank">Daniel</a>.

@@ -52,5 +52,5 @@ Neste projeto foram usadas as seguintes tecnologias
 - [MongoDB](https://www.mongodb.com/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 
-<hr/
+<hr/>
 Criado com dedicação por [Daniel](https://github.com/d8web/).

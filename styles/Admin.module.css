@@ -1,0 +1,180 @@
+.container {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+}
+
+.item {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.item:first-child {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.title {
+    margin: 0;
+    color: #333;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-spacing: 20px;
+    text-align: left;
+    font-size: 18px;
+    color: #333;
+    border-radius: 3px;
+}
+
+.rightTableItem {
+    text-align: right;
+}
+
+.centerTableItem {
+    text-align: center;
+}
+
+.button {
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 72px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.nextButton {
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 72px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 17px;
+    background-color: teal;
+}
+
+.addButton {
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 100px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 17px;
+    background-color: teal;
+}
+
+.button:first-child {
+    background-color: teal;
+    margin-right: 10px;
+}
+
+.button:last-child {
+    background-color: #d30b27;
+}
+
+.ripple {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ripple {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    top: 100px;
+    transform: translate(-50%);
+}
+
+.ripple div {
+    position: absolute;
+    border: 4px solid #000;
+    opacity: 1;
+    border-radius: 50%;
+    animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+
+.paginationArea {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.paginationArea ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.paginationItem {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    color: #333;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.paginationItemActive {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    background-color: #d30b27;
+    color: #fff;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+@keyframes ripple {
+    0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
+    }
+}

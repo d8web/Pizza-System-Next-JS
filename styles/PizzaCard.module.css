@@ -1,0 +1,59 @@
+.container {
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d30b27;
+    text-transform: uppercase;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.desc {
+    text-align: center;
+    color: #777;
+}
+
+@media screen and (max-width: 1366px) {
+    .container {
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .container {
+        padding: 20px;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+
+    .desc {
+        font-size: 16px;
+    }
+}

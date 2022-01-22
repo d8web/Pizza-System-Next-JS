@@ -51,3 +51,6 @@ Neste projeto foram usadas as seguintes tecnologias
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [MongoDB](https://www.mongodb.com/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
+
+<hr/
+Criado com dedicação por [Daniel](https://github.com/d8web/).

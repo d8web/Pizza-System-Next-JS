@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/router"
 import styles from "../../styles/Admin.module.css";
 
-const Orders = () => {
+const Orders = ({ orders }) => {
 
-    const router = useRouter()
-
-    const [loading, setLoading] = useState(false)
-    const [orderList, setOrderList] = useState([]);
-    const [activePage, setActivePage] = useState(1)
-    const [totalPages, setTotalPages] = useState(null)
+    const [orderList, setOrderList] = useState(orders);
 
     const status = ["Preparando", "A caminho", "Entregue"];
 
@@ -30,18 +24,6 @@ const Orders = () => {
             console.log(err);
         }
     };
-
-    const getOrders = async () => {
-        const perPage = 5
-        const productResponse = await axios.get(`http://localhost:3000/api/orders?page=${activePage}`)
-        setOrderList(productResponse.data.orders)
-        setTotalPages(Math.ceil(productResponse.data.totalPages / perPage))
-        //console.log(productResponse.data.totalPages)
-    }
-
-    useEffect(() => {
-        getOrders()
-    }, [activePage])
 
     return (
         <div className={styles.container}>
@@ -83,25 +65,6 @@ const Orders = () => {
                     </tbody>
                 </table>
 
-                {totalPages > 0 && (
-                    <div className={styles.paginationArea}>
-                        {Array(totalPages)
-                            .fill(0)
-                            .map((item, index) => (
-                                <div
-                                    key={index}
-                                    className={styles.paginationItem}
-                                    style={{
-                                        background: `${activePage == index + 1 ? "red" : ""}`,
-                                        color: `${activePage == index + 1 ? "white" : ""}`,
-                                    }}
-                                    onClick={() => setActivePage(index + 1)}
-                                >
-                                    {index + 1}
-                                </div>
-                            ))}
-                    </div>
-                )}
             </div>
         </div>
     );
@@ -117,11 +80,12 @@ export const getServerSideProps = async (ctx) => {
                 permanent: false,
             },
         };
+    } else {
+        const res = await axios.get(`http://localhost:3000/api/orders`)
+        return {
+            props: { orders: res.data }
+        }
     }
-
-    return {
-        props: {},
-    };
 };
 
 export default Orders;

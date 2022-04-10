@@ -1,5 +1,5 @@
 .container {
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
     background-color: #d30b27;
     overflow: hidden;
     position: relative;
@@ -63,6 +63,13 @@
     line-height: 36px;
 }
 
+@media screen and (max-width: 1600px) {
+    .titleHeadline {
+        font-size: 44px;
+        line-height: 62px;
+    }
+}
+
 @media screen and (max-width: 1240px) {
     .titleHeadline {
         width: 100%;
@@ -87,6 +94,10 @@
 }
 
 @media screen and (max-width: 860px) {
+    .container {
+        min-height: auto;
+    }
+
     .imgContainer {
         flex-direction: column;
         justify-content: center;

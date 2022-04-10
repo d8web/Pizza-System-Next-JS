@@ -5,14 +5,11 @@ import axios from "axios"
 import EditModal from "../../components/EditModal"
 import styles from "../../styles/Admin.module.css"
 
-const Admin = () => {
+const Admin = ({ pizzaData }) => {
 
     const router = useRouter()
 
-    const [loading, setLoading] = useState(false)
-    const [pizzaList, setPizzaList] = useState([])
-    const [activePage, setActivePage] = useState(1)
-    const [totalPages, setTotalPages] = useState(null)
+    const [pizzaList, setPizzaList] = useState(pizzaData)
 
     const [pizzaObject, setPizzaObject] = useState({})
     const [closeModal, setCloseModal] = useState(false)
@@ -37,18 +34,6 @@ const Admin = () => {
     const handleOrdersGo = () => {
         router.push("/admin/orders")
     }
-
-    const getPizzas = async () => {
-        const perPage = 3
-        const productResponse = await axios.get(`http://localhost:3000/api/products?page=${activePage}`)
-        setPizzaList(productResponse.data.products)
-        setTotalPages(Math.ceil(productResponse.data.totalPages / perPage))
-        //console.log(productResponse.data.totalPages)
-    }
-
-    useEffect(() => {
-        getPizzas()
-    }, [activePage])
 
     return (
         <div className={styles.container}>
@@ -79,7 +64,7 @@ const Admin = () => {
                                     <td>{item._id.slice(0, 5)}...</td>
                                     <td>
                                         <Image
-                                            src={item.img}
+                                            src={`/img/${item.img}`}
                                             width={50}
                                             height={50}
                                             objectFit="cover"
@@ -109,28 +94,9 @@ const Admin = () => {
                         </tbody>
                     </table>
 
-                    {totalPages > 0 &&
-                        <div className={styles.paginationArea}>
-                            {Array(totalPages).fill(0).map((item,index)=>(
-                                <div
-                                    key={index}
-                                    className={styles.paginationItem}
-                                    style={
-                                        {
-                                            background: `${activePage == (index + 1) ? 'red':''}`,
-                                            color: `${activePage == (index + 1) ? 'white':''}`,
-                                        }
-                                    }
-                                    onClick={() => setActivePage(index + 1)}
-                                    >
-                                        { index + 1 }
-                                </div>
-                            ))}
-                        </div>
-                    }
-
                 </div>
             }
+
             {closeModal &&
                 <EditModal
                     setCloseModal={setCloseModal}
@@ -151,10 +117,13 @@ export const getServerSideProps = async (ctx) => {
                 permanent: false
             }
         }
-    }
-
-    return {
-        props: {}
+    } else {
+        const response = await axios.get('http://localhost:3000/api/products')
+        return {
+            props: {
+                pizzaData: response.data
+            }
+        }
     }
 }
 

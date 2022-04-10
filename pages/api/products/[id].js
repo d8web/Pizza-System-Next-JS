@@ -18,7 +18,7 @@ export default async function handler(req, res) {
             res.status(200).json(product)
 
         } catch (err) {
-            res.status(500).json(err)
+            // res.status(500).json(err)
         }
 
     }
@@ -34,13 +34,13 @@ export default async function handler(req, res) {
             });
             res.status(200).json(product);
         } catch (err) {
-            res.status(500).json(err);
+            // res.status(500).json(err);
         }
     }
 
     if (method == "DELETE") {
         if (!token || token !== process.env.token) {
-            return res.status(401).json("Não autenticado!")
+            // return res.status(401).json("Não autenticado!")
         }
 
         try {
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
             res.status(200).json("Produto deletado com sucesso!");
 
         } catch (err) {
-            res.status(500).json(err)
+            // res.status(500).json(err)
         }
     }
 

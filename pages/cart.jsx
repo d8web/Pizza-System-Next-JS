@@ -112,7 +112,7 @@ const cart = () => {
                                         <td>
                                             <div className={styles.imageContainer}>
                                                 <Image
-                                                    src={product.img}
+                                                    src={`/img/${product.img}`}
                                                     layout="fill"
                                                     objectFit="contain"
                                                 />
@@ -170,11 +170,10 @@ const cart = () => {
                                     </button>
                                     <PayPalScriptProvider
                                         options={{
-                                            "client-id":
-                                                "INSIRA SUA CLIENT_ID DO PAYPAL",
+                                            "client-id": "",
                                             components: "buttons",
                                             currency: "BRL",
-                                            "disable-funding": "credit,card,p24,mercadopago",
+                                            "disable-funding": "credit,card,p24,mercadopago"
                                         }}
                                     >
                                         <ButtonWrapper currency={currency} showSpinner={false} />

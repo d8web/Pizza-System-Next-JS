@@ -1,35 +1,14 @@
-import mongoose from "mongoose";
-
+import { connect } from 'mongoose';
 const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!MONGODB_URI) {
-    throw new Error(
-        "Por favor defina sua variável MONGODB_URI dentro do arquivo .env"
-    );
-}
+export default async () => {
+    try {
 
-let cached = global.mongoose;
+        // console.log("Conectando ao MongoDB...");
+        await connect(MONGODB_URI);
+        // console.log("MongoDB conectado com sucesso");
 
-if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function dbConnect() {
-    if (cached.conn) {
-        return cached.conn;
+    } catch(error) {
+        console.log("Erro na conexão com o mongo db:", error);
     }
-
-    if (!cached.promise) {
-        const opts = {
-            bufferCommands: false,
-        };
-
-        cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-            return mongoose;
-        });
-    }
-    cached.conn = await cached.promise;
-    return cached.conn;
 }
-
-export default dbConnect;

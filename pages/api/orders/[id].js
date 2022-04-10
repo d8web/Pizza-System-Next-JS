@@ -14,7 +14,7 @@ const handler = async (req, res) => {
             const order = await Order.findById(id);
             res.status(200).json(order);
         } catch (err) {
-            res.status(500).json(err);
+            // res.status(500).json(err);
         }
     }
     if (method === "PUT") {
@@ -24,7 +24,7 @@ const handler = async (req, res) => {
             });
             res.status(200).json(order);
         } catch (err) {
-            res.status(500).json(err);
+            // res.status(500).json(err);
         }
     }
     if (method === "DELETE") {

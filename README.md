@@ -2,6 +2,8 @@
 
 <p>Fiz este projeto com a ajuda de um tutorial, porém, adicionei alguns conhecimentos que aprendi em cursos posteriores em react, tais como editar o produto dinamicamente e também paginação de resultados, além de adicionar loadings e fazer algumas otimizações no código e na estrutura. Aprendi também a me conectar com um serviço do mongo na nuvem, o MongoDB Atlas, vi também um pouco do Redux toolkit. Aprendi a usar o getServerSideProps, onde posso retornar dados que vão ser recebidos direto no componente através das próprias props.</p>
 
+<p>Você também precisa adicionar sua cliendId do paypal no arquivo do cart.jsx.</p>
+
 <img src="https://github.com/d8web/Pizza-System-Next-JS/blob/master/public/img/pizza.gif"/>
 
 ### Features

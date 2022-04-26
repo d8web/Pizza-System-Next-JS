@@ -14,7 +14,7 @@ import { reset } from "../redux/cartSlice";
 import OrderDetailModal from "../components/OrderDetailModal";
 
 const cart = () => {
-    const dispatch = useDispatch();
+    const Dispatch = useDispatch();
     const router = useRouter();
 
     const cart = useSelector((state) => state.cart);
@@ -30,7 +30,7 @@ const cart = () => {
         try {
             const res = await axios.post("http://localhost:3000/api/orders", data);
             res.status === 201 && router.push("/orders/" + res.data._id);
-            dispatch(reset());
+            Dispatch(reset());
         } catch (err) {
             console.log(err);
         }
@@ -40,7 +40,7 @@ const cart = () => {
         const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
 
         useEffect(() => {
-            dispatch({
+            Dispatch({
                 type: "resetOptions",
                 value: {
                     ...options,

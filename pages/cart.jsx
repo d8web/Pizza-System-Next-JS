@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
 import OrderDetailModal from "../components/OrderDetailModal";
 
-const cart = () => {
+const Cart = () => {
     const dispatch = useDispatch();
     const router = useRouter();
 
@@ -201,4 +201,4 @@ const cart = () => {
     );
 };
 
-export default cart;
+export default Cart;
